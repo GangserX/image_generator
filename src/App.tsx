@@ -3,6 +3,7 @@ import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ClickSpark from './components/ClickSpark';
 import PromptInput from './components/PromptInput';
+import NegativePromptInput from './components/NegativePromptInput';
 import { DEFAULT_SETTINGS } from './config/constants';
 import type { GenerationSettings } from './types';
 
@@ -63,17 +64,10 @@ function App() {
                   />
 
                   {/* Negative Prompt Section */}
-                  <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
-                    <h3 className="text-xl font-semibold text-dark-text mb-4">
-                      Negative Prompt <span className="text-dark-textMuted text-sm">(Optional)</span>
-                    </h3>
-                    <textarea
-                      value={settings.negativePrompt}
-                      onChange={(e) => setSettings({ ...settings, negativePrompt: e.target.value })}
-                      placeholder="What to avoid in your image... (e.g., 'blurry, low quality, distorted')"
-                      className="w-full h-24 bg-dark-bg/50 border border-dark-border/50 rounded-xl px-4 py-3 text-dark-text placeholder:text-dark-textMuted focus:outline-none focus:ring-2 focus:ring-[#4079ff] focus:border-transparent resize-none"
-                    />
-                  </div>
+                  <NegativePromptInput
+                    value={settings.negativePrompt}
+                    onChange={(value) => setSettings({ ...settings, negativePrompt: value })}
+                  />
 
                   {/* Image Upload Section */}
                   <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
