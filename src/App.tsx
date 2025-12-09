@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ClickSpark from './components/ClickSpark';
+import PromptInput from './components/PromptInput';
 import { DEFAULT_SETTINGS } from './config/constants';
 import type { GenerationSettings } from './types';
 
@@ -56,25 +57,10 @@ function App() {
                 {/* Left Column - Settings */}
                 <div className="lg:col-span-2 space-y-6">
                   {/* Prompt Input Section */}
-                  <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
-                    <GradientText
-                      colors={['#40ffaa', '#4079ff', '#40ffaa']}
-                      animationSpeed={3}
-                      className="text-2xl font-semibold mb-4"
-                    >
-                      Your Prompt
-                    </GradientText>
-                    <textarea
-                      value={settings.prompt}
-                      onChange={(e) => setSettings({ ...settings, prompt: e.target.value })}
-                      placeholder="Describe your image in detail... (e.g., 'A serene mountain landscape at sunset with pine trees')"
-                      className="w-full h-32 bg-dark-bg/50 border border-dark-border/50 rounded-xl px-4 py-3 text-dark-text placeholder:text-dark-textMuted focus:outline-none focus:ring-2 focus:ring-[#40ffaa] focus:border-transparent resize-none"
-                      required
-                    />
-                    <p className="text-xs text-dark-textMuted mt-2">
-                      * Required - Be specific and descriptive for best results
-                    </p>
-                  </div>
+                  <PromptInput
+                    value={settings.prompt}
+                    onChange={(value) => setSettings({ ...settings, prompt: value })}
+                  />
 
                   {/* Negative Prompt Section */}
                   <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
