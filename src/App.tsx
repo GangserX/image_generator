@@ -6,6 +6,7 @@ import PromptInput from './components/PromptInput';
 import NegativePromptInput from './components/NegativePromptInput';
 import AspectRatioSelector from './components/AspectRatioSelector';
 import ResolutionSelector from './components/ResolutionSelector';
+import StyleSelector from './components/StyleSelector';
 import { DEFAULT_SETTINGS } from './config/constants';
 import type { GenerationSettings } from './types';
 
@@ -90,15 +91,10 @@ function App() {
                 {/* Right Column - Options */}
                 <div className="space-y-6">
                   {/* Style Selector */}
-                  <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
-                    <h3 className="text-lg font-semibold text-dark-text mb-4">Style</h3>
-                    <p className="text-sm text-dark-textMuted mb-2">
-                      Current: <span className="text-[#40ffaa]">Realistic</span>
-                    </p>
-                    <p className="text-xs text-dark-textMuted">
-                      8 styles available - Full selector coming next
-                    </p>
-                  </div>
+                  <StyleSelector
+                    value={settings.style}
+                    onChange={(value) => setSettings({ ...settings, style: value })}
+                  />
 
                   {/* Aspect Ratio Selector */}
                   <AspectRatioSelector
