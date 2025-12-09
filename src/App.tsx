@@ -4,6 +4,7 @@ import GradientText from './components/GradientText';
 import ClickSpark from './components/ClickSpark';
 import PromptInput from './components/PromptInput';
 import NegativePromptInput from './components/NegativePromptInput';
+import AspectRatioSelector from './components/AspectRatioSelector';
 import { DEFAULT_SETTINGS } from './config/constants';
 import type { GenerationSettings } from './types';
 
@@ -99,17 +100,10 @@ function App() {
                   </div>
 
                   {/* Aspect Ratio Selector */}
-                  <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
-                    <h3 className="text-lg font-semibold text-dark-text mb-4">Aspect Ratio</h3>
-                    <div className="flex gap-2">
-                      <button className="flex-1 px-4 py-2 bg-[#40ffaa] text-dark-bg rounded-lg font-medium">
-                        Portrait
-                      </button>
-                      <button className="flex-1 px-4 py-2 bg-dark-bg/50 text-dark-text border border-dark-border/50 rounded-lg font-medium hover:border-[#40ffaa]/50">
-                        Landscape
-                      </button>
-                    </div>
-                  </div>
+                  <AspectRatioSelector
+                    value={settings.aspectRatio}
+                    onChange={(value) => setSettings({ ...settings, aspectRatio: value })}
+                  />
 
                   {/* Resolution Selector */}
                   <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
