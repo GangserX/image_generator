@@ -5,6 +5,7 @@ import ClickSpark from './components/ClickSpark';
 import PromptInput from './components/PromptInput';
 import NegativePromptInput from './components/NegativePromptInput';
 import AspectRatioSelector from './components/AspectRatioSelector';
+import ResolutionSelector from './components/ResolutionSelector';
 import { DEFAULT_SETTINGS } from './config/constants';
 import type { GenerationSettings } from './types';
 
@@ -106,15 +107,10 @@ function App() {
                   />
 
                   {/* Resolution Selector */}
-                  <div className="backdrop-blur-xl bg-dark-surface/50 border border-dark-border/30 rounded-2xl p-6 shadow-2xl">
-                    <h3 className="text-lg font-semibold text-dark-text mb-4">Resolution</h3>
-                    <p className="text-sm text-dark-textMuted mb-2">
-                      Current: <span className="text-[#40ffaa]">Full HD (1920x1080)</span>
-                    </p>
-                    <p className="text-xs text-dark-textMuted">
-                      HD, Full HD, 4K, 8K options
-                    </p>
-                  </div>
+                  <ResolutionSelector
+                    value={settings.resolution}
+                    onChange={(value) => setSettings({ ...settings, resolution: value })}
+                  />
 
                   {/* Generate Button */}
                   <button
